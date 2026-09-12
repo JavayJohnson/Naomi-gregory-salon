@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-const AUTOPLAY_DELAY = 6500
+const AUTOPLAY_DELAY = 9500
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false)
@@ -17,10 +17,9 @@ function useReducedMotion() {
 export default function PhotoCarousel({ photos }) {
   const viewportRef = useRef(null)
   const [index, setIndex] = useState(0)
-  const [manuallyPaused, setManuallyPaused] = useState(false)
   const [interactionPaused, setInteractionPaused] = useState(false)
   const reducedMotion = useReducedMotion()
-  const paused = manuallyPaused || interactionPaused || reducedMotion
+  const paused = interactionPaused || reducedMotion
 
   const moveTo = useCallback((nextIndex) => {
     const normalized = (nextIndex + photos.length) % photos.length
@@ -54,14 +53,7 @@ export default function PhotoCarousel({ photos }) {
           </div>
         ))}
       </div>
-      <div className="carousel-controls">
-        <button className="carousel-button" type="button" onClick={() => moveTo(index - 1)} aria-label="Previous photo">← Previous</button>
-        <button className="carousel-button" type="button" onClick={() => setManuallyPaused((value) => !value)} aria-pressed={manuallyPaused} disabled={reducedMotion}>
-          {reducedMotion ? 'Autoplay off' : manuallyPaused ? 'Resume' : 'Pause'}
-        </button>
-        <button className="carousel-button" type="button" onClick={() => moveTo(index + 1)} aria-label="Next photo">Next →</button>
-      </div>
-      <p className="sr-only" aria-live="polite">Photo {index + 1} of {photos.length}</p>
+      <p className="sr-only" aria-live="off">Photo {index + 1} of {photos.length}</p>
     </section>
   )
 }

@@ -1,5 +1,5 @@
 import PageMeta from '../components/PageMeta.jsx'
-import portrait from '../../design-references/original-images/Dominique Selfie Pic.jpg'
+const portrait = '/images/dominique-professional-portrait.webp'
 
 const services = [['✦', 'Shampoo Set'], ['◌', 'Blowout'], ['✂', 'Women’s Haircut'], ['▥', 'Men’s Haircut'], ['⚗', 'Chemical Services']]
 

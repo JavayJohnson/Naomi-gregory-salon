@@ -48,12 +48,12 @@ main { flex: 1; }
 .care-heart { font-size: 2.2rem; line-height: 1; }
 .photos-intro { max-width: 43rem; margin: -.75rem auto var(--space-6); color: var(--muted); text-align: center; }
 .carousel { position: relative; }
-.carousel-viewport { display: flex; gap: var(--space-3); padding: .35rem .35rem 1.5rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-color: var(--purple-400) var(--lavender-100); touch-action: pan-x pan-y; }
+.carousel-viewport { display: flex; gap: var(--space-3); padding: .35rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x pan-y; }
+.carousel-viewport::-webkit-scrollbar { display: none; }
 .carousel-slide { flex: 0 0 calc((100% - 2rem) / 3); scroll-snap-align: start; }
 .carousel-slide img { width: 100%; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); object-fit: cover; background: var(--lavender-100); }
-.carousel-controls { display: flex; margin-top: var(--space-4); align-items: center; justify-content: center; gap: var(--space-2); }
-.carousel-button, .button { display: inline-flex; min-height: 2.8rem; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1rem; border: 1px solid var(--purple-800); border-radius: var(--radius-sm); color: var(--purple-900); background: var(--white); font-weight: 700; text-decoration: none; cursor: pointer; }
-.carousel-button:hover, .button:hover { background: var(--lavender-100); }
+.button { display: inline-flex; min-height: 2.8rem; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1rem; border: 1px solid var(--purple-800); border-radius: var(--radius-sm); color: var(--purple-900); background: var(--white); font-weight: 700; text-decoration: none; cursor: pointer; }
+.button:hover { background: var(--lavender-100); }
 .button-primary { color: var(--white); background: var(--purple-900); }
 .button-primary:hover { background: var(--purple-800); }
 .contact-layout { display: grid; gap: clamp(2rem, 6vw, 5rem); grid-template-columns: minmax(14rem, .75fr) minmax(20rem, 1.25fr); }
@@ -124,8 +124,6 @@ main { flex: 1; }
   .header-inner { min-height: 6.75rem; }
   .form-grid, .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: auto; }
-  .carousel-controls { flex-wrap: wrap; }
-  .carousel-button { flex: 1 1 6rem; }
   .form-actions { align-items: stretch; flex-direction: column; }
   .form-actions .button { width: 100%; }
   .footer-contact { grid-template-columns: 3rem minmax(0, 1fr); }

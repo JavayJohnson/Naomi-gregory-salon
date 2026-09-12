@@ -26,12 +26,12 @@ for (const viewport of viewports) {
   })
 }
 
-test('carousel controls work and no public captions or filenames are rendered', async ({ page }) => {
+test('carousel scrolls automatically without visible controls or public filenames', async ({ page }) => {
   await page.goto('/photos')
   await expect(page.locator('.carousel-slide img')).toHaveCount(10)
-  await page.getByRole('button', { name: 'Next photo' }).click()
-  await page.getByRole('button', { name: 'Pause' }).click()
-  await expect(page.getByRole('button', { name: 'Resume' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /previous photo|next photo|pause|resume/i })).toHaveCount(0)
+  await page.waitForTimeout(9500)
+  await expect.poll(() => page.locator('.carousel-viewport').evaluate((element) => element.scrollLeft)).toBeGreaterThan(0)
   await expect(page.locator('.carousel-slide figcaption')).toHaveCount(0)
   await expect(page.getByText(/\.(jpe?g|png|webp)$/i)).toHaveCount(0)
 })

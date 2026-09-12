@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
@@ -102,18 +102,21 @@ describe('photo carousel', () => {
     { id: 'two', alt: 'Rear view of another hairstyle.', selected: 'original', sources: { original: '/two.jpeg' } },
   ]
 
-  it('has accessible controls without visible filenames or captions', async () => {
-    const user = userEvent.setup()
+  it('scrolls automatically without visible carousel controls or filenames', async () => {
+    vi.useFakeTimers()
     render(<PhotoCarousel photos={items} />)
-    await user.click(screen.getByRole('button', { name: 'Next photo' }))
+    await act(async () => { vi.advanceTimersByTime(9500) })
     expect(HTMLElement.prototype.scrollTo).toHaveBeenCalled()
+    expect(screen.queryByRole('button', { name: /previous photo|next photo|pause|resume/i })).not.toBeInTheDocument()
     expect(screen.queryByText(/one\.jpeg|two\.jpeg/i)).not.toBeInTheDocument()
     expect(screen.getAllByRole('img')).toHaveLength(2)
+    vi.useRealTimers()
   })
 
   it('disables autoplay when reduced motion is requested', async () => {
     window.matchMedia.mockImplementation(() => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }))
     render(<PhotoCarousel photos={items} />)
-    await waitFor(() => expect(screen.getByRole('button', { name: 'Autoplay off' })).toBeDisabled())
+    await waitFor(() => expect(screen.getByRole('region', { name: 'Hairstyle photos' })).toBeInTheDocument())
+    expect(screen.queryByRole('button', { name: /previous photo|next photo|pause|resume/i })).not.toBeInTheDocument()
   })
 })
