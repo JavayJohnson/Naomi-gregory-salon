@@ -46,12 +46,6 @@ main { flex: 1; }
 .service-card h3 { margin: 0; font-family: var(--font-sans); font-size: 1.08rem; font-weight: 700; line-height: 1.25; }
 .care-note { display: flex; margin-top: var(--space-5); align-items: center; justify-content: center; gap: var(--space-3); padding: 1.25rem; border-radius: var(--radius-md); color: var(--purple-800); background: var(--lavender-100); text-align: center; font-weight: 650; }
 .care-heart { font-size: 2.2rem; line-height: 1; }
-.photos-intro { max-width: 43rem; margin: -.75rem auto var(--space-6); color: var(--muted); text-align: center; }
-.carousel { position: relative; }
-.carousel-viewport { display: flex; gap: var(--space-3); padding: .35rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; touch-action: pan-x pan-y; }
-.carousel-viewport::-webkit-scrollbar { display: none; }
-.carousel-slide { flex: 0 0 calc((100% - 2rem) / 3); scroll-snap-align: start; }
-.carousel-slide img { width: 100%; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); object-fit: cover; background: var(--lavender-100); }
 .button { display: inline-flex; min-height: 2.8rem; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1rem; border: 1px solid var(--purple-800); border-radius: var(--radius-sm); color: var(--purple-900); background: var(--white); font-weight: 700; text-decoration: none; cursor: pointer; }
 .button:hover { background: var(--lavender-100); }
 .button-primary { color: var(--white); background: var(--purple-900); }
@@ -97,7 +91,6 @@ main { flex: 1; }
   .primary-nav.open { display: block; }
   .primary-nav ul { align-items: stretch; flex-direction: column; }
   .nav-link { width: 100%; }
-  .carousel-slide { flex-basis: calc((100% - 1rem) / 2); }
   .service-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -113,7 +106,6 @@ main { flex: 1; }
   .credential-panel { margin-inline: auto; text-align: left; }
   .about-copy h1::after { width: 5rem; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
-  .carousel-slide { flex-basis: 100%; }
   .footer-contacts { align-items: stretch; flex-direction: column; gap: var(--space-4); }
   .footer-contact { width: min(100%, 25rem); margin-inline: auto; }
 }

@@ -58,18 +58,14 @@ npx playwright install chromium
 
 - `/` — Home
 - `/about` — About
-- `/photos` — Photos
 - `/contact` — Contact
 - `/thank-you` — confirmation shown after server acceptance
 - All unknown URLs — Not Found
 
 ## Photo approval workflow
 
-The ten originals remain untouched in `design-references/original-images/`. Candidate edits are stored in `image-approval/edited/`; representative candidates are stored in `image-approval/generated/`. Review `IMAGE-APPROVAL-CHECKLIST.md` and the private comparison sheet before approving anything for the public carousel.
+The original hairstyle photographs and generated review candidates remain archived in `design-references/original-images/` and `image-approval/`. They are not used by the public website.
 
-Public photo choices live in one file: `src/data/photos.js`. Each entry has `edited` and `generated` sources plus a `selected` value. The visually reviewed edited set is provisional. Change an entry to `generated` only after approval, and copy that approved WebP from `image-approval/generated/` to the matching `public/images/photos/generated/` path. Candidate filenames are internal and are never rendered by the public carousel.
-
-Dominique's portrait is separate and must never be added to `src/data/photos.js`.
 
 ## Production build and deployment
 

@@ -1,9 +1,8 @@
-import { act, render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
 import App from '../App.jsx'
-import PhotoCarousel from '../components/PhotoCarousel.jsx'
 import { validateContact } from '../utils/contactValidation.js'
 
 function renderRoute(route = '/') {
@@ -14,7 +13,7 @@ describe('navigation and routes', () => {
   it.each([
     ['/', 'Simple Senior Hair Care with Compassion'],
     ['/about', 'About Dominique'],
-    ['/photos', 'Photos'],
+    ['/photos', 'Page Not Found'],
     ['/contact', 'Contact Us'],
     ['/missing', 'Page Not Found'],
   ])('renders %s', (route, heading) => {
@@ -25,10 +24,10 @@ describe('navigation and routes', () => {
   it('shows only the approved primary navigation links', () => {
     renderRoute('/')
     const nav = screen.getByRole('navigation', { name: 'Primary navigation' })
-    expect(nav.querySelectorAll('a')).toHaveLength(4)
+    expect(nav.querySelectorAll('a')).toHaveLength(3)
     expect(nav).toHaveTextContent('Home')
     expect(nav).toHaveTextContent('About')
-    expect(nav).toHaveTextContent('Photos')
+    expect(nav).not.toHaveTextContent('Photos')
     expect(nav).toHaveTextContent('Contact')
     expect(nav).not.toHaveTextContent('Pay Online')
     expect(nav).not.toHaveTextContent('Register')
@@ -93,30 +92,5 @@ describe('contact form', () => {
   it('does not claim submission when Thank You is opened directly', () => {
     renderRoute('/thank-you')
     expect(screen.queryByText(/submitted successfully/i)).not.toBeInTheDocument()
-  })
-})
-
-describe('photo carousel', () => {
-  const items = [
-    { id: 'one', alt: 'Rear view of one hairstyle.', selected: 'original', sources: { original: '/one.jpeg' } },
-    { id: 'two', alt: 'Rear view of another hairstyle.', selected: 'original', sources: { original: '/two.jpeg' } },
-  ]
-
-  it('scrolls automatically without visible carousel controls or filenames', async () => {
-    vi.useFakeTimers()
-    render(<PhotoCarousel photos={items} />)
-    await act(async () => { vi.advanceTimersByTime(5000) })
-    expect(HTMLElement.prototype.scrollTo).toHaveBeenCalled()
-    expect(screen.queryByRole('button', { name: /previous photo|next photo|pause|resume/i })).not.toBeInTheDocument()
-    expect(screen.queryByText(/one\.jpeg|two\.jpeg/i)).not.toBeInTheDocument()
-    expect(screen.getAllByRole('img')).toHaveLength(2)
-    vi.useRealTimers()
-  })
-
-  it('disables autoplay when reduced motion is requested', async () => {
-    window.matchMedia.mockImplementation(() => ({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }))
-    render(<PhotoCarousel photos={items} />)
-    await waitFor(() => expect(screen.getByRole('region', { name: 'Hairstyle photos' })).toBeInTheDocument())
-    expect(screen.queryByRole('button', { name: /previous photo|next photo|pause|resume/i })).not.toBeInTheDocument()
   })
 })

@@ -58,10 +58,9 @@ Open each URL directly in a private browser window:
 
 - `https://www.naomigregorysalon.com/`
 - `https://www.naomigregorysalon.com/about`
-- `https://www.naomigregorysalon.com/photos`
 - `https://www.naomigregorysalon.com/contact`
 
-Refresh each nested route. A refresh must keep the same page rather than returning a cPanel 404. Check desktop, tablet, and mobile widths. Confirm the mobile menu, carousel previous/next buttons, pause/resume control, phone link, and email link work.
+Refresh each nested route. A refresh must keep the same page rather than returning a cPanel 404. Check desktop, tablet, and mobile widths. Confirm the mobile menu, phone link, and email link work.
 
 ## 6. Test the live contact workflow
 

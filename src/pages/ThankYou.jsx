@@ -10,7 +10,7 @@ export default function ThankYou() {
         <div className="container simple-page">
           <h1>Thank You</h1>
           {accepted ? <p>Your message was submitted successfully. Naomi Gregory Salon will respond as soon as possible.</p> : <p>This confirmation page is shown only after the contact form is accepted. If you still need to send a message, please visit the Contact page.</p>}
-          <div className="button-row"><Link className="button button-primary" to="/">Back to Home</Link><Link className="button" to="/photos">View Photos</Link></div>
+          <div className="button-row"><Link className="button button-primary" to="/">Back to Home</Link></div>
         </div>
       </section>
     </>
