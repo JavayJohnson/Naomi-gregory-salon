@@ -105,7 +105,7 @@ describe('photo carousel', () => {
   it('scrolls automatically without visible carousel controls or filenames', async () => {
     vi.useFakeTimers()
     render(<PhotoCarousel photos={items} />)
-    await act(async () => { vi.advanceTimersByTime(9500) })
+    await act(async () => { vi.advanceTimersByTime(5000) })
     expect(HTMLElement.prototype.scrollTo).toHaveBeenCalled()
     expect(screen.queryByRole('button', { name: /previous photo|next photo|pause|resume/i })).not.toBeInTheDocument()
     expect(screen.queryByText(/one\.jpeg|two\.jpeg/i)).not.toBeInTheDocument()

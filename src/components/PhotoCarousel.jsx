@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-const AUTOPLAY_DELAY = 9500
+const AUTOPLAY_DELAY = 5000
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false)
