@@ -26,6 +26,17 @@ for (const viewport of viewports) {
   })
 }
 
+test('mobile shows all navigation tabs without a hamburger menu', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/about')
+  const navigation = page.getByRole('navigation', { name: 'Primary navigation' })
+  await expect(navigation).toBeVisible()
+  await expect(navigation.getByRole('link', { name: 'Home' })).toBeVisible()
+  await expect(navigation.getByRole('link', { name: 'About' })).toBeVisible()
+  await expect(navigation.getByRole('link', { name: 'Contact' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /navigation menu/i })).toHaveCount(0)
+})
+
 test('contact form redirects on success but not failure', async ({ page }) => {
   await page.route('**/api/contact.php', async (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' }))
   await page.goto('/contact')

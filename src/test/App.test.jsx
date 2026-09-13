@@ -33,15 +33,10 @@ describe('navigation and routes', () => {
     expect(nav).not.toHaveTextContent('Register')
   })
 
-  it('opens, closes, and escapes the mobile menu', async () => {
-    const user = userEvent.setup()
+  it('keeps the full navigation visible without a menu toggle', () => {
     renderRoute('/')
-    const toggle = screen.getByLabelText('Open navigation menu')
-    await user.click(toggle)
-    expect(toggle).toHaveAttribute('aria-expanded', 'true')
-    await user.keyboard('{Escape}')
-    expect(toggle).toHaveAttribute('aria-expanded', 'false')
-    expect(toggle).toHaveFocus()
+    expect(screen.queryByLabelText(/navigation menu/i)).not.toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible()
   })
 })
 
