@@ -11,7 +11,9 @@ function renderRoute(route = '/') {
 
 describe('navigation and routes', () => {
   it.each([
-    ['/', 'Simple Senior Hair Care with Compassion'],
+    ['/', 'Professional Salon Services for Metro Detroit Senior Living Communities'],
+    ['/senior-living-communities', 'On-Site Salon Services for Senior Living Communities'],
+    ['/services', 'Senior Hair Care Services'],
     ['/about', 'About Dominique'],
     ['/photos', 'Page Not Found'],
     ['/contact', 'Contact Us'],
@@ -24,8 +26,10 @@ describe('navigation and routes', () => {
   it('shows only the approved primary navigation links', () => {
     renderRoute('/')
     const nav = screen.getByRole('navigation', { name: 'Primary navigation' })
-    expect(nav.querySelectorAll('a')).toHaveLength(3)
+    expect(nav.querySelectorAll('a')).toHaveLength(5)
     expect(nav).toHaveTextContent('Home')
+    expect(nav).toHaveTextContent('Communities')
+    expect(nav).toHaveTextContent('Services')
     expect(nav).toHaveTextContent('About')
     expect(nav).not.toHaveTextContent('Photos')
     expect(nav).toHaveTextContent('Contact')

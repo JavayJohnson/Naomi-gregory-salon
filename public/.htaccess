@@ -1,4 +1,6 @@
 Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -10,7 +12,7 @@ Options -Indexes
   RewriteCond %{REQUEST_URI} !^/api/ [NC]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  RewriteRule ^ - [R=404,L]
 </IfModule>
 
 <IfModule mod_headers.c>

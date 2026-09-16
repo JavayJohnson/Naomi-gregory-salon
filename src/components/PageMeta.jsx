@@ -12,15 +12,18 @@ function upsertMeta(selector, attributes) {
   Object.entries(attributes).forEach(([name, value]) => element.setAttribute(name, value))
 }
 
-export default function PageMeta({ title, description, path = '/' }) {
+export default function PageMeta({ title, description, path = '/', robots = 'index, follow' }) {
   useEffect(() => {
     const pageTitle = title === siteName ? title : `${title} | ${siteName}`
     const url = `${origin}${path === '/' ? '' : path}`
     document.title = pageTitle
     upsertMeta('meta[name="description"]', { name: 'description', content: description })
+    upsertMeta('meta[name="robots"]', { name: 'robots', content: robots })
     upsertMeta('meta[property="og:title"]', { property: 'og:title', content: pageTitle })
     upsertMeta('meta[property="og:description"]', { property: 'og:description', content: description })
     upsertMeta('meta[property="og:url"]', { property: 'og:url', content: url })
+    upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: pageTitle })
+    upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: description })
     let canonical = document.head.querySelector('link[rel="canonical"]')
     if (!canonical) {
       canonical = document.createElement('link')
@@ -28,6 +31,6 @@ export default function PageMeta({ title, description, path = '/' }) {
       document.head.appendChild(canonical)
     }
     canonical.href = url
-  }, [description, path, title])
+  }, [description, path, robots, title])
   return null
 }

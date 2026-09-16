@@ -5,7 +5,7 @@ export default function ThankYou() {
   const accepted = useLocation().state?.accepted === true
   return (
     <>
-      <PageMeta title="Thank You" description="Thank you for contacting Naomi Gregory Salon, LLC." path="/thank-you" />
+      <PageMeta title="Thank You" description="Thank you for contacting Naomi Gregory Salon, LLC." path="/thank-you" robots="noindex, follow" />
       <section className="page-section">
         <div className="container simple-page">
           <h1>Thank You</h1>
