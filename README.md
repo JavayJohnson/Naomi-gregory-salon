@@ -1,6 +1,6 @@
-# Naomi Gregory Salon
+# Naomi Gregory Salon, LLC
 
-Responsive informational website for Naomi Gregory Salon, built with Vite, React, React Router, custom CSS, and a small PHP contact endpoint for GoDaddy cPanel hosting.
+Responsive informational website for Naomi Gregory Salon, LLC, built with Vite, React, React Router, custom CSS, and a small PHP contact endpoint for GoDaddy cPanel hosting.
 
 ## Requirements
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const siteName = 'Naomi Gregory Salon'
+const siteName = 'Naomi Gregory Salon, LLC'
 const origin = 'https://www.naomigregorysalon.com'
 
 function upsertMeta(selector, attributes) {

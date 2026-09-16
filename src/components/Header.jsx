@@ -10,8 +10,8 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <NavLink className="brand" to="/" aria-label="Naomi Gregory Salon home">
-          <span className="wordmark">Naomi<br />Gregory<br />Salon</span>
+        <NavLink className="brand" to="/" aria-label="Naomi Gregory Salon, LLC home">
+          <span className="wordmark">Naomi<br />Gregory<br />Salon, LLC</span>
           <span className="tagline">Professional Stylist<br />Specializing in<br />Senior Hair Care</span>
         </NavLink>
         <nav className="primary-nav" aria-label="Primary navigation">

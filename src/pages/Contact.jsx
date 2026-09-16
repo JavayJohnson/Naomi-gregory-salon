@@ -4,7 +4,7 @@ import PageMeta from '../components/PageMeta.jsx'
 export default function Contact() {
   return (
     <>
-      <PageMeta title="Contact" description="Contact Naomi Gregory Salon for compassionate, professional senior hair care." path="/contact" />
+      <PageMeta title="Contact" description="Contact Naomi Gregory Salon, LLC for compassionate, professional senior hair care." path="/contact" />
       <section className="page-section">
         <div className="container contact-layout">
           <div className="contact-intro">

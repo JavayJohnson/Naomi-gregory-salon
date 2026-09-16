@@ -12,7 +12,7 @@ export default function Footer() {
             <div><a href="mailto:info@naomigregorysalon.com">info@naomigregorysalon.com</a><span>Email Us</span></div>
           </div>
         </div>
-        <p className="copyright">© {new Date().getFullYear()} Naomi Gregory Salon. All rights reserved.</p>
+        <p className="copyright">© {new Date().getFullYear()} Naomi Gregory Salon, LLC. All rights reserved.</p>
       </div>
     </footer>
   )

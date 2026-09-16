@@ -78,7 +78,7 @@ $body = "A new message was submitted through naomigregorysalon.com.\n\n"
     . "Telephone: {$phoneLine}\n\n"
     . "Message:\n{$message}\n";
 $headers = [
-    'From: Naomi Gregory Salon Website <' . $from . '>',
+    'From: Naomi Gregory Salon, LLC Website <' . $from . '>',
     'Reply-To: ' . $email,
     'Content-Type: text/plain; charset=UTF-8',
     'X-Mailer: PHP/' . PHP_MAJOR_VERSION,

@@ -82,15 +82,15 @@ function ServiceIcon({ type }) {
 export default function About() {
   return (
     <>
-      <PageMeta title="About Dominique" description="Meet Dominique Pitts and learn about the compassionate senior hair-care services at Naomi Gregory Salon." path="/about" />
+      <PageMeta title="About Dominique" description="Meet Dominique Pitts and learn about the compassionate senior hair-care services at Naomi Gregory Salon, LLC." path="/about" />
       <section className="page-section">
         <div className="container about-grid">
-          <div className="portrait-frame"><img className="portrait-image" src={portrait} alt="Dominique Pitts, owner and professional cosmetologist at Naomi Gregory Salon." /></div>
+          <div className="portrait-frame"><img className="portrait-image" src={portrait} alt="Dominique Pitts, owner and professional cosmetologist at Naomi Gregory Salon, LLC." /></div>
           <div className="about-copy">
             <h1>About Dominique</h1>
-            <p>Dominique Pitts is a professional cosmetologist specializing in senior hair care and the owner of Naomi Gregory Salon.</p>
+            <p>Dominique Pitts is a professional cosmetologist specializing in senior hair care and the owner of Naomi Gregory Salon, LLC.</p>
             <p>With more than 22 years of experience as a licensed cosmetologist and more than 18 years of specialized experience working with seniors, including residents with dementia and Alzheimer’s disease, Dominique is passionate about providing personalized, compassionate care.</p>
-            <p>Naomi Gregory Salon is fully licensed and insured, giving you peace of mind with every visit.</p>
+            <p>Naomi Gregory Salon, LLC is fully licensed and insured, giving you peace of mind with every visit.</p>
           </div>
         </div>
       </section>
