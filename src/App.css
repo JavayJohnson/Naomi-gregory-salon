@@ -23,7 +23,9 @@ main { flex: 1; }
 .hero-grid { display: grid; max-width: 62rem; margin-inline: auto; grid-template-columns: minmax(16rem, .82fr) minmax(20rem, 1.18fr); align-items: center; gap: clamp(2.5rem, 7vw, 6rem); }
 .portrait-frame { position: relative; }
 .portrait-frame::before { position: absolute; z-index: -1; inset: 1rem -1rem -1rem 1rem; border-radius: var(--radius-lg); background: var(--lavender-100); content: ''; }
-.portrait-image { width: 100%; aspect-ratio: 4 / 5; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); object-fit: cover; object-position: 50% 35%; }
+.hero-grid .portrait-frame { width: min(100%, 19rem); justify-self: center; }
+.about-grid .portrait-frame { width: min(100%, 20rem); justify-self: center; }
+.portrait-image { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); object-fit: contain; object-position: center; }
 .hero-copy h1 { max-width: 18ch; margin-bottom: var(--space-4); font-size: clamp(2.45rem, 5.4vw, 4.65rem); }
 .hero-copy p { max-width: 34rem; margin-bottom: var(--space-5); font-size: clamp(1.05rem, 2vw, 1.25rem); }
 .eyebrow { margin-bottom: .75rem !important; color: var(--purple-800) !important; font-size: .82rem !important; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
@@ -134,7 +136,7 @@ main { flex: 1; }
   .wordmark { min-width: 7.2rem; font-size: 1.4rem; }
   .hero-grid, .about-grid, .contact-layout { grid-template-columns: 1fr; }
   .hero-grid, .about-grid { max-width: 34rem; }
-  .portrait-frame { width: min(85%, 23rem); margin-inline: auto; }
+  .hero-grid .portrait-frame, .about-grid .portrait-frame { width: min(78%, 18rem); margin-inline: auto; }
   .hero-copy { text-align: center; }
   .hero-copy h1 { max-width: none; }
   .hero-copy h1::after { margin-inline: auto; }

@@ -146,6 +146,25 @@ test('home, services, and about content render correctly', async ({ page }) => {
   expect(await aboutPortrait.evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true)
 })
 
+test('portrait images remain compact and uncropped', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+
+  for (const route of ['/', '/about']) {
+    await page.goto(route)
+    const portrait = page.locator('.portrait-image')
+    const presentation = await portrait.evaluate((image) => ({
+      width: image.getBoundingClientRect().width,
+      objectFit: getComputedStyle(image).objectFit,
+      ratio: image.getBoundingClientRect().width / image.getBoundingClientRect().height,
+      naturalRatio: image.naturalWidth / image.naturalHeight,
+    }))
+
+    expect(presentation.width).toBeLessThanOrEqual(route === '/' ? 324 : 341)
+    expect(presentation.objectFit).toBe('contain')
+    expect(Math.abs(presentation.ratio - presentation.naturalRatio)).toBeLessThan(0.01)
+  }
+})
+
 test('published phone and email links are consistent without submitting the form', async ({ page }) => {
   await page.goto('/contact')
   const main = page.locator('main')
