@@ -17,7 +17,7 @@ export default function Services() {
         <div className="container content-hero-inner">
           <p className="eyebrow">Salon services for older adults</p>
           <h1>Senior Hair Care Services</h1>
-          <p>Professional hair care is provided within established salons at Metro Detroit senior living communities, creating a convenient and familiar experience for residents.</p>
+          <p>Professional hair care is provided within salons at Metro-Detroit senior living communities, creating a convenient and familiar experience for residents.</p>
         </div>
       </section>
       <section className="services-section page-section" aria-labelledby="services-title">
