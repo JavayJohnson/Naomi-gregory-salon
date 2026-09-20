@@ -28,7 +28,7 @@ export default function Home() {
           <div className="section-intro">
             <p className="eyebrow">Resident-centered salon care</p>
             <h2 id="community-care-title">A professional salon experience within your community</h2>
-            <p>Naomi Gregory Salon, LLC works in established salon spaces inside senior living communities, helping facility leaders offer convenient, respectful hair care without requiring residents to leave home.</p>
+            <p>Naomi Gregory Salon, LLC works in salon spaces inside senior living communities, helping facility leaders offer convenient, respectful hair care without requiring residents to leave home.</p>
           </div>
           <div className="feature-grid">
             <article className="feature-card"><h3>On-site salon partnership</h3><p>Services are designed for communities that already have a dedicated salon space on their property.</p></article>

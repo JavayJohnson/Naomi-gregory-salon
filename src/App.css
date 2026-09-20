@@ -4,7 +4,7 @@
 .container { width: min(calc(100% - 2rem), var(--content)); margin-inline: auto; }
 .skip-link { position: fixed; z-index: 1000; top: .75rem; left: .75rem; padding: .75rem 1rem; transform: translateY(-180%); border-radius: var(--radius-sm); color: var(--white); background: var(--purple-900); font-weight: 700; }
 .skip-link:focus { transform: translateY(0); }
-.site-header { position: relative; z-index: 20; background: rgba(255, 255, 255, .98); }
+.site-header { position: sticky; z-index: 20; top: 0; background: rgba(255, 255, 255, .98); }
 .header-inner { display: grid; min-height: 9.25rem; grid-template-columns: auto 1fr; align-items: center; gap: clamp(1.25rem, 4vw, 3rem); border-bottom: 2px solid var(--purple-600); }
 .brand { display: flex; align-items: center; gap: 1.25rem; color: var(--purple-900); text-decoration: none; }
 .wordmark { display: block; min-width: 8.4rem; font-family: var(--font-serif); font-size: 1.65rem; line-height: .92; text-align: center; text-transform: uppercase; }

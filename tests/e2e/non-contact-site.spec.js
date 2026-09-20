@@ -219,6 +219,24 @@ for (const viewport of viewports) {
   })
 }
 
+for (const viewport of viewports) {
+  test(`${viewport.name} keeps the navigation ribbon visible while scrolling`, async ({ page }) => {
+    await page.setViewportSize(viewport)
+
+    for (const route of ['/', '/senior-living-communities', '/services', '/about', '/contact']) {
+      await page.goto(route)
+      const header = page.locator('.site-header')
+      await expect(header).toBeVisible()
+
+      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
+
+      expect(await page.evaluate(() => window.scrollY), `${route} should be scrollable at ${viewport.width}px`).toBeGreaterThan(0)
+      expect(Math.abs(await header.evaluate((element) => element.getBoundingClientRect().top)), `${route} header should remain at the top at ${viewport.width}px`).toBeLessThanOrEqual(1)
+      await expect(page.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible()
+    }
+  })
+}
+
 test('mobile navigation remains visible without a hidden menu dependency', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 700 })
   await page.goto('/about')
