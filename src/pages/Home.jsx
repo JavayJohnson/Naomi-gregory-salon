@@ -17,7 +17,7 @@ export default function Home() {
             <p>Naomi Gregory Salon, LLC partners with senior living communities that have an on-site salon, bringing residents compassionate hair care in a familiar, comfortable setting.</p>
             <div className="hero-actions">
               <Link className="button button-primary" to="/senior-living-communities">For Senior Living Communities</Link>
-              <a className="button" href="tel:+12489560236">Call or Text Us</a>
+              <Link className="button" to="/contact">Call or Text Us</Link>
             </div>
             <div className="credential-panel"><span className="credential-mark" aria-hidden="true">✓</span><span>22+ years as a licensed cosmetologist, including 18+ years specializing in senior hair care.</span></div>
           </div>

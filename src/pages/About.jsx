@@ -14,8 +14,7 @@ export default function About() {
             <p className="eyebrow">Experience with compassion</p>
             <h1>About Dominique</h1>
             <p>Dominique Pitts is a licensed professional cosmetologist and the owner of Naomi Gregory Salon, LLC. She is seeking partnerships with Metro Detroit senior living communities that have an on-site salon space.</p>
-            <p>With more than 22 years of experience as a cosmetologist and more than 18 years specializing in senior hair care, Dominique understands that a salon visit can support dignity, confidence, routine, and personal connection.</p>
-            <p>Her experience includes working compassionately with older adults living with dementia and Alzheimer's disease. Naomi Gregory Salon, LLC is fully licensed and insured.</p>
+            <p>She works compassionately with older adults, including those living with dementia and Alzheimer's disease. With more than 22 years of experience as a cosmetologist and more than 18 years specializing in senior hair care, Dominique understands that a salon visit can support dignity, confidence, routine, and personal connection.</p>
             <div className="button-row button-row-left">
               <Link className="button button-primary" to="/senior-living-communities">Learn About Community Partnerships</Link>
               <Link className="button" to="/contact">Contact Us</Link>

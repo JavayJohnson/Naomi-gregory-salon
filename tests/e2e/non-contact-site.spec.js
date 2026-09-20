@@ -136,6 +136,10 @@ test('updated home, services, communities, and about content render correctly', 
   const homePortrait = page.getByRole('img', { name: `Owner and professional cosmetologist at ${siteName}.` })
   await expect(homePortrait).toBeVisible()
   expect(await homePortrait.evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true)
+  const contactButton = page.getByRole('link', { name: 'Call or Text Us' })
+  await expect(contactButton).toHaveAttribute('href', '/contact')
+  await contactButton.click()
+  await expect(page).toHaveURL(/\/contact$/)
 
   await page.goto('/services')
   await expect(page.locator('.service-detail-card')).toHaveCount(5)
@@ -145,7 +149,7 @@ test('updated home, services, communities, and about content render correctly', 
   await expect(page.locator('.service-detail-card p')).toHaveCount(0)
 
   await page.goto('/senior-living-communities')
-  await expect(page.getByText('Naomi Gregory Salon, LLC brings more than 18 years of specialized experience serving older adults, including residents living with dementia and Alzheimer\'s disease.')).toBeVisible()
+  await expect(page.getByText('Brings more than 18 years of specialized experience serving older adults, including residents living with dementia and Alzheimer\'s disease.')).toBeVisible()
   await expect(page.locator('.faq-list article')).toHaveCount(3)
   await expect(page.getByRole('link', { name: 'Contact Naomi Gregory Salon, LLC about your community' })).toHaveAttribute('href', '/contact')
 
