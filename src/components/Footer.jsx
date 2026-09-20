@@ -18,8 +18,8 @@ export default function Footer() {
         <nav className="footer-nav" aria-label="Footer navigation">
           <Link to="/senior-living-communities">For Communities</Link>
           <Link to="/services">Services</Link>
-          <Link to="/about">About Dominique</Link>
-          <Link to="/contact">Contact</Link>
+          <Link to="/about">About Naomi Gregory Salon, LLC</Link>
+          <Link to="/contact">Contact Us</Link>
         </nav>
         <p className="copyright">© {new Date().getFullYear()} Naomi Gregory Salon, LLC. All rights reserved.</p>
       </div>

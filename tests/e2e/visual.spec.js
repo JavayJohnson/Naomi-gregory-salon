@@ -2,10 +2,20 @@ import { expect, test } from '@playwright/test'
 
 const captures = [
   { route: '/', name: 'home-desktop', viewport: { width: 1440, height: 900 } },
+  { route: '/services', name: 'services-desktop', viewport: { width: 1440, height: 900 } },
+  { route: '/senior-living-communities', name: 'communities-desktop', viewport: { width: 1440, height: 900 } },
   { route: '/about', name: 'about-desktop', viewport: { width: 1440, height: 900 } },
+  { route: '/contact', name: 'contact-desktop', viewport: { width: 1440, height: 900 } },
+  { route: '/', name: 'home-tablet', viewport: { width: 768, height: 1024 } },
+  { route: '/services', name: 'services-tablet', viewport: { width: 768, height: 1024 } },
+  { route: '/senior-living-communities', name: 'communities-tablet', viewport: { width: 768, height: 1024 } },
   { route: '/about', name: 'about-tablet', viewport: { width: 768, height: 1024 } },
+  { route: '/contact', name: 'contact-tablet', viewport: { width: 768, height: 1024 } },
+  { route: '/', name: 'home-mobile', viewport: { width: 390, height: 844 } },
+  { route: '/services', name: 'services-mobile', viewport: { width: 390, height: 844 } },
+  { route: '/senior-living-communities', name: 'communities-mobile', viewport: { width: 390, height: 844 } },
   { route: '/about', name: 'about-mobile', viewport: { width: 390, height: 844 } },
-  { route: '/contact', name: 'contact-small-mobile', viewport: { width: 320, height: 700 } },
+  { route: '/contact', name: 'contact-mobile', viewport: { width: 390, height: 844 } },
 ]
 
 test('captures the public responsive pages for visual review', async ({ page }) => {

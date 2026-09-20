@@ -9,7 +9,7 @@ const viewports = [
 ]
 
 test('all routes load directly', async ({ page }) => {
-  for (const [route, heading] of [['/', 'Professional Salon Services for Metro Detroit Senior Living Communities'], ['/senior-living-communities', 'On-Site Salon Services for Senior Living Communities'], ['/services', 'Senior Hair Care Services'], ['/about', 'About Dominique'], ['/contact', 'Contact Us'], ['/thank-you', 'Thank You']]) {
+  for (const [route, heading] of [['/', 'Professional Salon Services for Senior Living Communities'], ['/senior-living-communities', 'On-Site Salon Services for Senior Living Communities'], ['/services', 'Senior Hair Care Services'], ['/about', 'About Dominique'], ['/contact', 'Contact Us'], ['/thank-you', 'Thank You']]) {
     await page.goto(route)
     await expect(page.getByRole('heading', { level: 1, name: heading })).toBeVisible()
   }
@@ -35,7 +35,7 @@ test('mobile shows all navigation tabs without a hamburger menu', async ({ page 
   await expect(navigation.getByRole('link', { name: 'Communities' })).toBeVisible()
   await expect(navigation.getByRole('link', { name: 'Services' })).toBeVisible()
   await expect(navigation.getByRole('link', { name: 'About' })).toBeVisible()
-  await expect(navigation.getByRole('link', { name: 'Contact' })).toBeVisible()
+  await expect(navigation.getByRole('link', { name: 'Contact Us' })).toBeVisible()
   await expect(page.getByRole('button', { name: /navigation menu/i })).toHaveCount(0)
 })
 

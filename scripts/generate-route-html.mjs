@@ -12,7 +12,7 @@ const routes = [
   {
     path: '/',
     title: `Metro Detroit Senior Living Salon Services | ${siteName}`,
-    description: 'Professional senior hair care for Metro Detroit senior living communities with an existing on-site salon. Licensed cosmetologist Dominique Pitts provides compassionate resident-centered care.',
+    description: 'Naomi Gregory Salon, LLC provides professional, compassionate senior hair care for Metro Detroit senior living communities with an existing on-site salon.',
   },
   {
     path: '/senior-living-communities',
@@ -32,7 +32,7 @@ const routes = [
   {
     path: '/contact',
     title: `Contact a Metro Detroit Senior Living Hairstylist | ${siteName}`,
-    description: 'Contact Dominique Pitts to discuss professional salon services for residents at a Metro Detroit senior living community with an existing on-site salon.',
+    description: 'Contact Naomi Gregory Salon, LLC to discuss professional salon services for residents at a Metro Detroit senior living community with an existing on-site salon.',
   },
   {
     path: '/thank-you',

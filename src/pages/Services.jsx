@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import PageMeta from '../components/PageMeta.jsx'
 
 const services = [
-  { name: 'Shampoo Sets', description: 'Gentle shampooing and classic styling tailored to each resident\'s comfort and preferences.' },
-  { name: 'Blowouts', description: 'Professional drying and styling for a polished, comfortable salon experience.' },
-  { name: "Women's Haircuts", description: 'Personalized haircuts shaped around the resident\'s style, hair needs, and comfort.' },
-  { name: "Men's Haircuts", description: 'Careful, professional grooming for residents in the convenience of their community salon.' },
-  { name: 'Chemical Services', description: 'Available chemical services can be discussed with the community based on resident needs and salon capabilities.' },
+  'Shampoo Sets',
+  'Blowouts',
+  "Women's Haircuts",
+  "Men's Haircuts",
+  'Chemical Services',
 ]
 
 export default function Services() {
@@ -24,10 +24,9 @@ export default function Services() {
         <div className="container">
           <h2 id="services-title" className="section-heading">Services Available</h2>
           <div className="service-detail-grid">
-            {services.map(({ name, description }) => (
-              <article className="service-detail-card" key={name}>
-                <h3>{name}</h3>
-                <p>{description}</p>
+            {services.map((service) => (
+              <article className="service-detail-card" key={service}>
+                <h3>{service}</h3>
               </article>
             ))}
           </div>
@@ -35,7 +34,7 @@ export default function Services() {
         </div>
       </section>
       <section className="cta-section">
-        <div className="container cta-inner"><div><p className="eyebrow">For facility leaders</p><h2>Does your community have an on-site salon?</h2><p>Contact Dominique to discuss resident needs and whether Naomi Gregory Salon, LLC may be a good fit.</p></div><Link className="button button-primary" to="/contact">Start a Conversation</Link></div>
+        <div className="container cta-inner"><div><p className="eyebrow">For facility leaders</p><h2>Does your community have an on-site salon?</h2><p>Contact Naomi Gregory Salon, LLC to discuss resident needs and whether the salon may be a good fit.</p></div><Link className="button button-primary" to="/contact">Start a Conversation</Link></div>
       </section>
     </>
   )

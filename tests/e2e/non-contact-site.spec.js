@@ -7,10 +7,10 @@ const publicPages = [
   {
     name: 'home',
     path: '/',
-    heading: 'Professional Salon Services for Metro Detroit Senior Living Communities',
+    heading: 'Professional Salon Services for Senior Living Communities',
     title: `Metro Detroit Senior Living Salon Services | ${siteName}`,
     canonical: siteOrigin,
-    description: 'Professional senior hair care for Metro Detroit senior living communities with an existing on-site salon. Licensed and insured cosmetologist Dominique Pitts provides compassionate resident-centered care.',
+    description: 'Naomi Gregory Salon, LLC provides professional, compassionate senior hair care for Metro Detroit senior living communities with an existing on-site salon.',
   },
   {
     name: 'senior living communities',
@@ -42,7 +42,7 @@ const publicPages = [
     heading: 'Contact Us',
     title: `Contact a Metro Detroit Senior Living Hairstylist | ${siteName}`,
     canonical: `${siteOrigin}/contact`,
-    description: 'Contact Dominique Pitts to discuss professional salon services for residents at a Metro Detroit senior living community with an existing on-site salon.',
+    description: 'Contact Naomi Gregory Salon, LLC to discuss professional salon services for residents at a Metro Detroit senior living community with an existing on-site salon.',
   },
   {
     name: 'thank-you page opened directly',
@@ -123,24 +123,32 @@ test('primary navigation works and clearly identifies the active page', async ({
   await expect(page.getByRole('heading', { level: 1, name: 'About Dominique' })).toBeVisible()
   await expect(navigation.getByRole('link', { name: 'About' })).toHaveClass(/active/)
 
-  await navigation.getByRole('link', { name: 'Contact' }).click()
+  await navigation.getByRole('link', { name: 'Contact Us' }).click()
   await expect(page).toHaveURL(/\/contact$/)
   await expect(page.getByRole('heading', { level: 1, name: 'Contact Us' })).toBeVisible()
-  await expect(navigation.getByRole('link', { name: 'Contact' })).toHaveClass(/active/)
+  await expect(navigation.getByRole('link', { name: 'Contact Us' })).toHaveClass(/active/)
 })
 
-test('home, services, and about content render correctly', async ({ page }) => {
+test('updated home, services, communities, and about content render correctly', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.tagline')).toHaveText('Professional Stylist Specializing in Senior Hair Care Serving the Metro-Detroit Area')
+  await expect(page.locator('.tagline')).toHaveCount(0)
   await expect(page.getByText(/22\+ years as a licensed cosmetologist/i)).toBeVisible()
-  const homePortrait = page.getByRole('img', { name: `Dominique Pitts, owner and professional cosmetologist at ${siteName}.` })
+  const homePortrait = page.getByRole('img', { name: `Owner and professional cosmetologist at ${siteName}.` })
   await expect(homePortrait).toBeVisible()
   expect(await homePortrait.evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true)
 
   await page.goto('/services')
+  await expect(page.locator('.service-detail-card')).toHaveCount(5)
   for (const service of ['Shampoo Sets', 'Blowouts', "Women's Haircuts", "Men's Haircuts", 'Chemical Services']) {
     await expect(page.getByRole('heading', { level: 3, name: service, exact: true })).toBeVisible()
   }
+  await expect(page.locator('.service-detail-card p')).toHaveCount(0)
+
+  await page.goto('/senior-living-communities')
+  await expect(page.getByText('Naomi Gregory Salon, LLC brings more than 18 years of specialized experience serving older adults, including residents living with dementia and Alzheimer\'s disease.')).toBeVisible()
+  await expect(page.locator('.faq-list article')).toHaveCount(3)
+  await expect(page.getByRole('link', { name: 'Contact Naomi Gregory Salon, LLC about your community' })).toHaveAttribute('href', '/contact')
+
   await page.goto('/about')
   const aboutPortrait = page.getByRole('img', { name: `Dominique Pitts, owner and professional cosmetologist at ${siteName}.` })
   expect(await aboutPortrait.evaluate((image) => image.complete && image.naturalWidth > 0)).toBe(true)
@@ -196,7 +204,7 @@ test('not-found page returns visitors to the home page', async ({ page }) => {
   await page.goto('/missing-page')
   await page.getByRole('link', { name: 'Return Home' }).click()
   await expect(page).toHaveURL(/\/$/)
-  await expect(page.getByRole('heading', { level: 1, name: 'Professional Salon Services for Metro Detroit Senior Living Communities' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Professional Salon Services for Senior Living Communities' })).toBeVisible()
 })
 
 for (const viewport of viewports) {
@@ -217,7 +225,7 @@ test('mobile navigation remains visible without a hidden menu dependency', async
   const navigation = page.getByRole('navigation', { name: 'Primary navigation' })
 
   await expect(navigation).toBeVisible()
-  for (const linkName of ['Home', 'Communities', 'Services', 'About', 'Contact']) {
+  for (const linkName of ['Home', 'Communities', 'Services', 'About', 'Contact Us']) {
     await expect(navigation.getByRole('link', { name: linkName })).toBeVisible()
   }
   await expect(page.getByRole('button', { name: /navigation menu/i })).toHaveCount(0)
@@ -237,7 +245,7 @@ test('robots, sitemap, favicon, and social preview assets are available', async 
   expect(sitemapBody).toContain('<loc>https://www.naomigregorysalon.com/about</loc>')
   expect(sitemapBody).toContain('<loc>https://www.naomigregorysalon.com/contact</loc>')
 
-  for (const asset of ['/favicon.png', '/og.webp', '/images/dominique-professional-portrait.webp']) {
+  for (const asset of ['/favicon.png', '/og.webp', '/images/owner-professional-portrait.webp']) {
     const response = await request.get(asset)
     expect(response.ok(), `${asset} should load successfully`).toBe(true)
     expect(Number(response.headers()['content-length'] || 1)).toBeGreaterThan(0)

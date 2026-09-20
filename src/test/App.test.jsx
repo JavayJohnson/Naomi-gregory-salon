@@ -11,7 +11,7 @@ function renderRoute(route = '/') {
 
 describe('navigation and routes', () => {
   it.each([
-    ['/', 'Professional Salon Services for Metro Detroit Senior Living Communities'],
+    ['/', 'Professional Salon Services for Senior Living Communities'],
     ['/senior-living-communities', 'On-Site Salon Services for Senior Living Communities'],
     ['/services', 'Senior Hair Care Services'],
     ['/about', 'About Dominique'],
@@ -32,7 +32,7 @@ describe('navigation and routes', () => {
     expect(nav).toHaveTextContent('Services')
     expect(nav).toHaveTextContent('About')
     expect(nav).not.toHaveTextContent('Photos')
-    expect(nav).toHaveTextContent('Contact')
+    expect(nav).toHaveTextContent('Contact Us')
     expect(nav).not.toHaveTextContent('Pay Online')
     expect(nav).not.toHaveTextContent('Register')
   })
@@ -41,6 +41,30 @@ describe('navigation and routes', () => {
     renderRoute('/')
     expect(screen.queryByLabelText(/navigation menu/i)).not.toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: 'Primary navigation' })).toBeVisible()
+  })
+
+  it('uses the updated site-wide business copy while preserving the About biography', () => {
+    const { unmount } = renderRoute('/')
+    expect(screen.queryByText(/Professional Stylist.*Senior Hair Care/i)).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Professional Salon Services for Senior Living Communities')
+    unmount()
+
+    renderRoute('/about')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('About Dominique')
+    expect(screen.getByText(/Dominique Pitts is a licensed professional cosmetologist/i)).toBeInTheDocument()
+  })
+
+  it('renders compact service names without descriptions', () => {
+    renderRoute('/services')
+    const cards = document.querySelectorAll('.service-detail-card')
+    expect(cards).toHaveLength(5)
+    cards.forEach((card) => expect(card.querySelector('p')).not.toBeInTheDocument())
+  })
+
+  it('removes the memory-care FAQ and updates the community CTA', () => {
+    renderRoute('/senior-living-communities')
+    expect(document.querySelectorAll('.faq-list article')).toHaveLength(3)
+    expect(screen.getByRole('link', { name: 'Contact Naomi Gregory Salon, LLC about your community' })).toHaveAttribute('href', '/contact')
   })
 })
 

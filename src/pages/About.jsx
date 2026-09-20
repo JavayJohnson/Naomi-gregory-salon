@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageMeta from '../components/PageMeta.jsx'
 
-const portrait = '/images/dominique-professional-portrait.webp'
+const portrait = '/images/owner-professional-portrait.webp'
 
 export default function About() {
   return (
@@ -18,7 +18,7 @@ export default function About() {
             <p>Her experience includes working compassionately with older adults living with dementia and Alzheimer's disease. Naomi Gregory Salon, LLC is fully licensed and insured.</p>
             <div className="button-row button-row-left">
               <Link className="button button-primary" to="/senior-living-communities">Learn About Community Partnerships</Link>
-              <Link className="button" to="/contact">Contact Dominique</Link>
+              <Link className="button" to="/contact">Contact Us</Link>
             </div>
           </div>
         </div>

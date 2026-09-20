@@ -5,7 +5,7 @@ const links = [
   { to: '/senior-living-communities', label: 'Communities' },
   { to: '/services', label: 'Services' },
   { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/contact', label: 'Contact Us' },
 ]
 
 export default function Header() {
@@ -14,7 +14,6 @@ export default function Header() {
       <div className="container header-inner">
         <NavLink className="brand" to="/" aria-label="Naomi Gregory Salon, LLC home">
           <span className="wordmark">Naomi<br />Gregory<br />Salon, LLC</span>
-          <span className="tagline">Professional Stylist<br /> Specializing in<br /> Senior Hair Care<br /> Serving the<br /> Metro-Detroit Area</span>
         </NavLink>
         <nav className="primary-nav" aria-label="Primary navigation">
           <ul>

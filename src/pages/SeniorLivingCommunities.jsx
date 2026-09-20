@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import PageMeta from '../components/PageMeta.jsx'
 
 const partnershipBenefits = [
-  { title: 'Experienced senior care', text: 'Dominique brings more than 18 years of specialized experience serving older adults, including residents living with dementia and Alzheimer\'s disease.' },
+  { title: 'Experienced senior care', text: 'Naomi Gregory Salon, LLC brings more than 18 years of specialized experience serving older adults, including residents living with dementia and Alzheimer\'s disease.' },
   { title: 'A familiar on-site setting', text: 'Residents receive hair care in the salon already located within their community, reducing the need for off-site travel.' },
   { title: 'Professional peace of mind', text: 'Naomi Gregory Salon, LLC is fully licensed and insured, with more than 22 years of professional cosmetology experience.' },
 ]
@@ -21,7 +21,7 @@ export default function SeniorLivingCommunities() {
       </section>
       <section className="page-section" aria-labelledby="partnership-title">
         <div className="container">
-          <div className="section-intro"><p className="eyebrow">A resident-centered partnership</p><h2 id="partnership-title">Professional care for your residents, in your salon</h2><p>Dominique's approach combines cosmetology experience with patience, respect, and an understanding of the needs of older adults.</p></div>
+          <div className="section-intro"><p className="eyebrow">A resident-centered partnership</p><h2 id="partnership-title">Professional care for your residents, in your salon</h2><p>Naomi Gregory Salon, LLC combines cosmetology experience with patience, respect, and an understanding of the needs of older adults.</p></div>
           <div className="feature-grid">
             {partnershipBenefits.map(({ title, text }) => <article className="feature-card" key={title}><h3>{title}</h3><p>{text}</p></article>)}
           </div>
@@ -33,7 +33,7 @@ export default function SeniorLivingCommunities() {
           <ol className="process-grid">
             <li><span>1</span><div><h3>Tell us about your community</h3><p>Share your Metro Detroit location, salon setup, and the residents your community supports.</p></div></li>
             <li><span>2</span><div><h3>Discuss resident needs</h3><p>Review the hair services your residents request and the care considerations that matter to your team.</p></div></li>
-            <li><span>3</span><div><h3>Determine the right fit</h3><p>Dominique will discuss whether her experience and services align with your community's needs.</p></div></li>
+            <li><span>3</span><div><h3>Determine the right fit</h3><p>Naomi Gregory Salon, LLC will discuss whether its experience and services align with your community's needs.</p></div></li>
           </ol>
         </div>
       </section>
@@ -42,11 +42,10 @@ export default function SeniorLivingCommunities() {
           <div className="section-intro"><h2 id="faq-title">Questions from senior living communities</h2></div>
           <div className="faq-list">
             <article><h3>Does the community need an existing salon?</h3><p>Yes. Naomi Gregory Salon, LLC is currently seeking senior living communities with an established salon space on their property.</p></article>
-            <article><h3>What area does Dominique serve?</h3><p>The current partnership focus is senior living communities throughout the Metro Detroit area.</p></article>
-            <article><h3>Does Dominique have memory-care experience?</h3><p>Yes. Her senior hair care experience includes working compassionately with residents living with dementia and Alzheimer's disease.</p></article>
+            <article><h3>What area does Naomi Gregory Salon, LLC serve?</h3><p>The current partnership focus is senior living communities throughout the Metro Detroit area.</p></article>
             <article><h3>What services are available?</h3><p>Services include shampoo sets, blowouts, women's haircuts, men's haircuts, and chemical services. Community-specific needs can be discussed directly.</p></article>
           </div>
-          <div className="centered-action"><Link className="button button-primary" to="/contact">Contact Dominique About Your Community</Link></div>
+          <div className="centered-action"><Link className="button button-primary" to="/contact">Contact Naomi Gregory Salon, LLC about your community</Link></div>
         </div>
       </section>
     </>
