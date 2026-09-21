@@ -41,7 +41,7 @@ export default function SeniorLivingCommunities() {
         <div className="container narrow-container">
           <div className="section-intro"><h2 id="faq-title">Questions from senior living communities</h2></div>
           <div className="faq-list">
-            <article><h3>Does the community need an existing salon?</h3><p>Yes. Naomi Gregory Salon, LLC is currently seeking senior living communities with an established salon space on their property.</p></article>
+            <article><h3>Does the community need an existing salon?</h3><p>Yes. Naomi Gregory Salon, LLC is currently seeking senior living communities with a salon space on their property.</p></article>
             <article><h3>What area does Naomi Gregory Salon, LLC serve?</h3><p>The current partnership focus is senior living communities throughout the Metro Detroit area.</p></article>
             <article><h3>What services are available?</h3><p>Services include shampoo sets, blowouts, women's haircuts, men's haircuts, and chemical services. Community-specific needs can be discussed directly.</p></article>
           </div>
