@@ -69,7 +69,7 @@ if ($errors) {
 }
 
 $recipient = 'info@naomigregorysalon.com';
-$from = 'info@naomigregorysalon.com';
+$from = 'do-not-reply@naomigregorysalon.com';
 $subject = 'New website message from ' . $firstName . ' ' . $lastName;
 $phoneLine = $telephone !== '' ? $telephone : 'Not provided';
 $body = "A new message was submitted through naomigregorysalon.com.\n\n"
