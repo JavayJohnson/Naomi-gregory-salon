@@ -1,4 +1,3 @@
-import ContactForm from '../components/ContactForm.jsx'
 import PageMeta from '../components/PageMeta.jsx'
 
 export default function Contact() {
@@ -9,14 +8,13 @@ export default function Contact() {
         <div className="container contact-layout">
           <div className="contact-intro">
             <p className="eyebrow">Senior living community partnerships</p>
-            <h1>Contact Us</h1>
-            <p>If you manage a Metro Detroit senior living community with an on-site salon, contact Naomi Gregory Salon, LLC to discuss your residents, salon space, and hair care needs.</p>
-            <div className="contact-details">
-              <div className="contact-detail"><strong>Call or Text</strong><a href="tel:+12489560236">248-956-0236</a></div>
-              <div className="contact-detail"><strong>Email Us</strong><a href="mailto:info@naomigregorysalon.com">info@naomigregorysalon.com</a></div>
-            </div>
+            <h1 className="page-heading">Contact Us</h1>
+            <p>For more information please call or email Dominique at Naomi Gregory Salon, LLC.</p>
           </div>
-          <ContactForm />
+          <div className="contact-details">
+            <div className="contact-detail"><strong>Call or Text</strong><a href="tel:+12489560236">248-956-0236</a></div>
+            <div className="contact-detail"><strong>Email Us</strong><a href="mailto:info@naomigregorysalon.com">info@naomigregorysalon.com</a></div>
+          </div>
         </div>
       </section>
     </>
